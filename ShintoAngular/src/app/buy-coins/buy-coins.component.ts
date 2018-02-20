@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service'
 
 @Component({
   selector: 'app-buy-coins',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyCoinsComponent implements OnInit {
 
-  constructor() { }
+    coinInfo: any;
+    coinsToBuy: Number;
 
-  ngOnInit() {
-  }
+    constructor(private _shinto: HttpService) { }
+
+    ngOnInit() {
+        this.coinInfo = this._shinto.pullCoinInfo();
+    }
+
+    buyCoins() {
+        this._shinto.buyCoins(parseInt(this.coinsToBuy));
+        this.coinInfo = this._shinto.pullCoinInfo();
+        this.coinsToBuy = 0;
+    }
 
 }

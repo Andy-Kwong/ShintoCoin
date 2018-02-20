@@ -11,6 +11,7 @@ import { MineCoinsComponent } from './mine-coins/mine-coins.component';
 import { BuyCoinsComponent } from './buy-coins/buy-coins.component';
 import { SellCoinsComponent } from './sell-coins/sell-coins.component';
 import { BrowseLedgerComponent } from './browse-ledger/browse-ledger.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BrowseLedgerComponent } from './browse-ledger/browse-ledger.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
